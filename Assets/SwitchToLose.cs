@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinMenuController : MonoBehaviour
+public class SwitchToLose : MonoBehaviour
 {
-    [SerializeField] private Screenfader fader;
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(LoseSceneCall());
     }
 
     // Update is called once per frame
@@ -18,15 +17,9 @@ public class WinMenuController : MonoBehaviour
 
     }
 
-    public void Back2StartScreen()
+    IEnumerator LoseSceneCall()
     {
-        fader.FadeToColor("StartScreen");
+        yield return new WaitForSeconds(11.283f);
+        SceneManager.LoadScene("GameOver");
     }
-
-    public void Back2Play()
-    {
-        fader.FadeToColor("MainGame");
-    }
-
 }
-

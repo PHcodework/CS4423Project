@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Return : MonoBehaviour
 {
+
+    [SerializeField] private Screenfader fader;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,6 @@ public class Return : MonoBehaviour
 
     public void StartScreen()
     {
-        SceneManager.LoadScene("StartScreen");
+        fader.FadeToColor("StartScreen");
     }
 }

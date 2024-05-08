@@ -5,15 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class BoogiemanHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private Screenfader fader;
-
-    public int fullHealth = 10;
+    [SerializeField] public int fullHealth = 10;
     public int health;
-
-    public static BoogiemanHealth singleton;
-    [SerializeField] private TextMeshProUGUI healthText;
+    public static EnemyHealth singleton;
 
     // Start is called before the first frame update
     void Start()
@@ -34,12 +30,7 @@ public class BoogiemanHealth : MonoBehaviour
         GetComponent<AudioSource>().Play();
         if (health <= 0)
         {
-            fader.FadeToColor("Losecutscene");
+            SceneManager.LoadScene("GameOver");
         }
-    }
-
-    public void RegisterHealth()
-    {
-        healthText.text = health.ToString();
     }
 }

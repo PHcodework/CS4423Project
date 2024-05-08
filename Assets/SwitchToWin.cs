@@ -3,30 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class WinMenuController : MonoBehaviour
+public class SwitchToWin : MonoBehaviour
 {
-    [SerializeField] private Screenfader fader;
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(WinSceneCall());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    public void Back2StartScreen()
+    IEnumerator WinSceneCall()
     {
-        fader.FadeToColor("StartScreen");
+        yield return new WaitForSeconds(11.283f);
+        SceneManager.LoadScene("YouWon");
     }
-
-    public void Back2Play()
-    {
-        fader.FadeToColor("MainGame");
-    }
-
 }
-

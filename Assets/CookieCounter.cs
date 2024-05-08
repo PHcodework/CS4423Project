@@ -9,6 +9,8 @@ public class CookieCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinNumber;
 
+    [SerializeField] private Screenfader fader;
+
     public static CookieCounter thisCounter;
 
     int cookiesEaten = 0;
@@ -32,7 +34,7 @@ public class CookieCounter : MonoBehaviour
         coinNumber.text = cookiesEaten.ToString();
         if(cookiesEaten == 20)
         {
-            SceneManager.LoadScene("YouWon");
+            fader.FadeToColor("Wincutscene");
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuHandler : MonoBehaviour
 {
+    [SerializeField] private Screenfader fader;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +20,13 @@ public class MainMenuHandler : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("MainGame");
+        fader.FadeToColor("MainGame");
+        
     }
 
     public void Controls()
     {
-        SceneManager.LoadScene("Controls");
+        fader.FadeToColor("Controls");
     }
 
     public void Exit()

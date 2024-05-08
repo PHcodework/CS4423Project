@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenuHandler : MonoBehaviour
 {
+    [SerializeField] private Screenfader fader;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +21,11 @@ public class GameOverMenuHandler : MonoBehaviour
 
     public void Back2StartScreen()
     {
-        SceneManager.LoadScene("StartScreen");
+        fader.FadeToColor("StartScreen");
     }
 
     public void Back2Play()
     {
-        SceneManager.LoadScene("MainGame");
+        fader.FadeToColor("MainGame");
     }
 }
